@@ -1,0 +1,52 @@
+{
+  "function": {
+    "authenticatedapi175d1a4c3": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "api": {
+    "authenticatedapi": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "authenticatedapi175d1a4c3",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ]
+    }
+  },
+  "custom": {
+    "lambdaResource": {
+      "service": "customCloudformation",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "authenticatedapi175d1a4c3",
+          "attributes": [
+            "Name",
+            "Arn",
+            "Region",
+            "LambdaExecutionRole"
+          ]
+        },
+        {
+          "category": "api",
+          "resourceName": "authenticatedapi",
+          "attributes": [
+            "RootUrl",
+            "ApiName",
+            "ApiId"
+          ]
+        }
+      ]
+    }
+  }
+}

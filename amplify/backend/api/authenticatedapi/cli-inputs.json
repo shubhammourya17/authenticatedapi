@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/importlambda": {
+      "name": "/importlambda",
+      "lambdaFunction": "authenticatedapi175d1a4c3",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
